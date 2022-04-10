@@ -10,7 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.canvasdrawing.DecoratorHelper
 import com.example.canvasdrawing.R
 
-private const val STROKE_WIDTH = 12f // has to be float
+private const val STROKE_WIDTH = 12f
 
 
 class MyCanvasView @JvmOverloads constructor(
@@ -38,17 +38,12 @@ class MyCanvasView @JvmOverloads constructor(
         if (::extraBitmap.isInitialized) extraBitmap.recycle()
         extraBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         extraCanvas = Canvas(extraBitmap)
-        extraCanvas.drawColor(backgroundColorPurple)//specifying color in which we will draw on canvas
-        // Calculate a rectangular frame around the picture.
-        val inset = 40
-//        frame = Rect(inset, inset, width - inset, height - inset)
+        extraCanvas.drawColor(backgroundColorPurple)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         canvas.drawBitmap(extraBitmap,0f,0f,null)
-        // Draw a frame around the canvas.
-//        canvas.drawRect(frame, paint)
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -74,19 +69,15 @@ class MyCanvasView @JvmOverloads constructor(
         val dx = Math.abs(motionTouchEventX - currentX)
         val dy = Math.abs(motionTouchEventY - currentY)
         if (dx >= touchTolerance || dy >= touchTolerance) {
-            // QuadTo() adds a quadratic bezier from the last point,
-            // approaching control point (x1,y1), and ending at (x2,y2).
             path.quadTo(currentX, currentY, (motionTouchEventX + currentX) / 2, (motionTouchEventY + currentY) / 2)
             currentX = motionTouchEventX
             currentY = motionTouchEventY
-            // Draw the path in the extra bitmap to cache it.
             extraCanvas.drawPath(path, DecoratorHelper.paint)
         }
         invalidate()
     }
 
     private fun touchUp() {
-        // Reset the path so it doesn't get drawn again.
         path.reset()
     }
 

@@ -47,12 +47,9 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                // Set the content to appear under the system bars so that the
-                // content doesn't resize when the system bars hide and show.
                 or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                // Hide the nav bar and status bar
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
@@ -196,14 +193,14 @@ class MainActivity : Activity() {
         DecoratorHelper.paint = Paint().apply {
             color = ResourcesCompat.getColor(resources,
                 R.color.MyBlack, null)
-            // Smooths out edges of what is drawn without affecting shape.
+
             isAntiAlias = true
-            // Dithering affects how colors with higher-precision than the device are down-sampled.
+
             isDither = true
-            style = Paint.Style.STROKE // default: FILL
-            strokeJoin = Paint.Join.ROUND // default: MITER
-            strokeCap = Paint.Cap.ROUND // default: BUTT
-            strokeWidth = 50.0f // default: Hairline-width (really thin)
+            style = Paint.Style.STROKE
+            strokeJoin = Paint.Join.ROUND
+            strokeCap = Paint.Cap.ROUND
+            strokeWidth = 50.0f
         }
     }
 }

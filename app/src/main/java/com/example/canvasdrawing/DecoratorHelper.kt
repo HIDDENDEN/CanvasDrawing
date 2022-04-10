@@ -7,13 +7,11 @@ import androidx.core.content.res.ResourcesCompat
 object DecoratorHelper {
 
     var paint = Paint().apply {
-        // Smooths out edges of what is drawn without affecting shape.
         isAntiAlias = true
-        // Dithering affects how colors with higher-precision than the device are down-sampled.
         isDither = true
-        style = Paint.Style.STROKE // default: FILL
-        strokeJoin = Paint.Join.ROUND // default: MITER
-        strokeCap = Paint.Cap.ROUND // default: BUTT
-        strokeWidth = 50.0f // default: Hairline-width (really thin)
+        style = Paint.Style.STROKE
+        strokeJoin = Paint.Join.ROUND
+        strokeCap = Paint.Cap.ROUND
+        strokeWidth = 50.0f
     }
 }
