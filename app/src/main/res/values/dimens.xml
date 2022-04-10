@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="button_size">40dp</dimen>
+    <dimen name="button_margin">10dp</dimen>
+    <dimen name="panel_height">200dp</dimen>
+    <dimen name="panel_margin_bottom">20dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+</resources>

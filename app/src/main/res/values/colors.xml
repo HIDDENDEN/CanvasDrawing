@@ -10,4 +10,12 @@
 
     <color name="colorBackground">#FFFF5500</color>
     <color name="colorPaint">#FFFFEB3B</color>
+
+<!--    CUSTOM COLORS-->
+    <color name="MyBlack">#000</color>
+    <color name="MyGrey">#525252</color>
+    <color name="MyOrange">#FF9200</color>
+    <color name="MyBlue">#0041FF</color>
+    <color name="MyRed">#FF0000</color>
+
 </resources>
